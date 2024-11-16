@@ -1,0 +1,57 @@
+<nb-card>
+  <nb-card-header>
+    <div class="flex-row align-items-center justify-content-between" style="display: flex">
+      <span>{{dialogMode === 'view' ? this.gateWay?.name : (dialogMode === 'edit' ? 'Edit ' + this.gateWay?.name : 'New GateWay')}}</span>
+      <nb-icon  [icon]="'close-round'" pack="ion" (click)="cancel()"  status="primary" class="cursor-pointer"></nb-icon>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <form class="form-inline" [formGroup]="form" *ngIf="dialogMode!=='view'; else view">
+      <input type="text" nbInput fullWidth formControlName="name" placeholder="name">
+      <nb-select fullWidth formControlName="clusterName" placeholder="cluster name">
+        <nb-option *ngFor="let cluster of clusterList" [value]="cluster.name">{{cluster.name}}</nb-option>
+      </nb-select>
+      <input type="text" nbInput fullWidth formControlName="brokerId" placeholder="Broker Id">
+      <input type="text" nbInput fullWidth formControlName="delay" placeholder="Delay">
+    </form>
+    <ng-template #view>
+      <div class="columns">
+        <div class="column">
+          <div class="cell">
+            <span>Id</span>
+            <span>{{this.gateWay?.id}}</span>
+          </div>
+          <div class="cell">
+            <span>Name</span>
+            <span>{{this.gateWay?.name}}</span>
+          </div>
+
+
+        </div>
+        <div class="column">
+          <div class="cell">
+            <span>Broker Id</span>
+            <span>{{this.gateWay?.brokerId}}</span>
+          </div>
+          <div class="cell">
+            <span>Delay</span>
+            <span>{{this.gateWay?.delay}}</span>
+          </div>
+        </div>
+
+      </div>
+    </ng-template>
+
+  </nb-card-body>
+  <nb-card-footer>
+    <div class="form-buttons">
+      <button class="cancel" nbButton status="basic" (click)="cancel()">Cancel</button>
+      <ng-container *ngIf="dialogMode==='view'">
+        <button class="cancel" nbButton status="danger" (click)="delete()">Delete</button>
+        <button nbButton status="primary" (click)="edit()">Edit</button>
+      </ng-container>
+      <button nbButton status="success" (click)="submit()" *ngIf="dialogMode!=='view'">Submit</button>
+
+    </div>
+  </nb-card-footer>
+</nb-card>

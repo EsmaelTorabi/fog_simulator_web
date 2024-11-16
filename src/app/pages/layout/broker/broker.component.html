@@ -1,0 +1,11 @@
+  <div class="image-box cursor-pointer" (click)="openSnackBar()">
+    <img src="../../../../assets/iot/broker.png" *ngIf="isActive; else disable" alt="broker">
+    <ng-template #disable >
+      <img src="../../../../assets/iot/broker_disable.png" alt="broker">
+    </ng-template>
+    <ngx-from-to-animation [type]="sensorType" [@fromTo]="animationState"  class="animation"></ngx-from-to-animation>
+  </div>
+
+
+
+

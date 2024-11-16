@@ -1,0 +1,25 @@
+<div class="main-container cursor-pointer" [class.active]="isActive" (click)="openSnackBar()">
+  <div class="image-box" [nbTooltip]="server?.name + '(Runtime adaption)'" >
+    <img src="../../../../assets/iot/runtime.png" *ngIf="isCoreActive; else disableRuntime" alt="runtime">
+    <ng-template #disableRuntime >
+      <img src="../../../../assets/iot/runtime_disable.png" alt="runtime">
+    </ng-template>
+  </div>
+
+  <div class="image-box" [nbTooltip]="server?.name + '(Core)'" >
+    <img src="../../../../assets/iot/server.png" *ngIf="isCoreActive; else disableCore" alt="core">
+    <ng-template #disableCore >
+      <img src="../../../../assets/iot/server_disable.png" alt="core">
+    </ng-template>
+  </div>
+
+  <div class="image-box" [nbTooltip]="server?.name + '(Garbage collection)'" >
+    <img src="../../../../assets/iot/garbage.png" *ngIf="isCoreActive; else disableGarbage" alt="garbage">
+    <ng-template #disableGarbage >
+      <img src="../../../../assets/iot/garbage_disable.png" alt="garbage">
+    </ng-template>
+  </div>
+
+</div>
+
+

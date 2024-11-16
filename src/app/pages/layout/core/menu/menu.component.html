@@ -1,0 +1,5 @@
+<button mat-icon-button color="primary" [matMenuTriggerFor]="menu"><i class="fa fa-ellipsis-v"></i></button>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item *ngFor="let item of menuItems" [disabled]="!isButtonsVisible" (click)="doAction(item.action)">{{item.text}}</button>
+</mat-menu>

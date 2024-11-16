@@ -1,0 +1,36 @@
+<div class="main-container">
+  <div class="top-btns">
+    <button nbButton status="primary" (click)="reload()">reload</button>
+    <button nbButton status="primary" [disabled]="isSocketStarted || (isSocketStarted$ | async)" (click)="start()">start</button>
+    <button nbButton status="primary" [disabled]="isSocketConnected || (isSocketConnected$ | async)" (click)="connect()">connect</button>
+  </div>
+<div style="position: absolute; top: 0; display: flex; flex-direction: column; row-gap: 16px;align-items: center">
+  <ngx-cloud [cloud]="cloud" [nbTooltip]="cloud.name" [id]="cloud.name"></ngx-cloud>
+  <div class="clusters-container" #clustersContainer>
+    <ngx-cluster *ngFor="let cluster of clusterList" [cluster]="cluster"></ngx-cluster>
+  </div>
+</div>
+
+
+  <svg id="svg" #svg>
+    <line id="line" #line class="line original" stroke-dasharray="5, 5"/>
+  </svg>
+  <div class="bottom-btns">
+    <div  (click)="openHistoryList()" style="width: 200px">
+      <nb-select fullWidth  status="primary"  placeholder="History" id="historyList">
+        <nb-option *ngFor="let key of Object.keys(clustersHistory)" class="history-option cursor-default" style="display: flex; justify-content: space-between" [value]="key"
+                  >
+        <span  (click)="showOldClusterList(key)" style="flex:1"  class="cursor-pointer">{{key}}</span>
+          <nb-icon  [icon]="'close-round'" pack="ion"(click)="deleteClustersFromHistory(key)"  status="danger"  class="cursor-pointer delete-button"></nb-icon>
+
+        </nb-option>
+      </nb-select>
+    </div>
+
+    <button class="save-btn"  nbButton status="primary"   (click)="save(clusterList)">save</button>
+
+  </div>
+
+</div>
+
+

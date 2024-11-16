@@ -1,0 +1,21 @@
+<nb-card>
+  <nb-card-header>
+    <div class="flex-row align-items-center justify-content-between" style="display: flex">
+      <span>Save Scenario</span>
+      <nb-icon  [icon]="'close-round'" pack="ion" (click)="cancel()"  status="primary" class="cursor-pointer"></nb-icon>
+    </div>
+    </nb-card-header>
+  <nb-card-body>
+    <form class="form-inline" [formGroup]="form">
+      <input type="text" nbInput fullWidth formControlName="name" placeholder="Scenario Name">
+    </form>
+
+  </nb-card-body>
+  <nb-card-footer>
+    <div class="form-buttons">
+      <button class="cancel" nbButton status="basic" (click)="cancel()">Cancel</button>
+      <button nbButton status="success" (click)="submit()">Submit</button>
+
+    </div>
+  </nb-card-footer>
+</nb-card>

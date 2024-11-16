@@ -1,0 +1,123 @@
+<!--<div fxLayout="column" fxLayoutAlign="center center">-->
+<!--  <h1 mat-dialog-title style="color: black">{{ data.dialogTitle }}</h1>-->
+<!--  <div-->
+<!--    *ngIf="data.formDialogList"-->
+<!--    class="form-container"-->
+<!--    fxLayout="column"-->
+<!--    mat-dialog-content-->
+<!--  >-->
+<!--    <div-->
+<!--      *ngFor="let item of data.formDialogList; let i = index"-->
+<!--      [ngSwitch]="item.type"-->
+<!--      fxLayout="row"-->
+<!--    >-->
+<!--      <div-->
+<!--        *ngSwitchCase="localFormDialogModel.select"-->
+<!--        fxFlex="100"-->
+<!--        fxLayout="row"-->
+<!--      >-->
+<!--        <mat-form-field fxFlex="100">-->
+<!--          <mat-select-->
+<!--            [(value)]="item.value"-->
+<!--            [id]="item.key"-->
+<!--            [placeholder]="item.label"-->
+<!--            (valueChange)="selectorChange(item)"-->
+<!--          >-->
+<!--            <mat-option *ngIf="item.hasEmptyOption"></mat-option>-->
+<!--            <mat-option-->
+<!--              *ngFor="let option of item.itemList"-->
+<!--              [value]="item.valueFieldName ? option[item.valueFieldName]: option"-->
+<!--              >{{ item.itemFieldName?option[item.itemFieldName]: option}}</mat-option-->
+<!--            >-->
+<!--          </mat-select>-->
+<!--        </mat-form-field>-->
+<!--      </div>-->
+<!--      <ng-container-->
+<!--        *ngSwitchCase="localFormDialogModel.dependentSelect"-->
+<!--      >-->
+<!--        <div-->
+<!--          fxFlex="100"-->
+<!--          fxLayout="row"-->
+<!--        >-->
+<!--          <mat-form-field fxFlex="100">-->
+<!--            <mat-select-->
+<!--              [(value)]="item.value"-->
+<!--              [id]="item.key"-->
+<!--              [placeholder]="item.label"-->
+<!--           >-->
+
+<!--              <mat-option *ngIf="item.hasEmptyOption"></mat-option>-->
+<!--              <mat-option-->
+<!--                *ngFor="let option of item.itemList"-->
+<!--                [value]="item.valueFieldName ? option[item.valueFieldName]: option"-->
+<!--              >{{ item.itemFieldName?option[item.itemFieldName]: option}}</mat-option-->
+<!--              >-->
+
+<!--            </mat-select>-->
+<!--          </mat-form-field>-->
+<!--        </div>-->
+<!--      </ng-container>-->
+<!--      <div-->
+<!--        *ngSwitchCase="localFormDialogModel.string"-->
+<!--        fxFlex="100"-->
+<!--        fxLayout="row"-->
+<!--      >-->
+<!--        <mat-form-field fxFlex="100">-->
+<!--          <input-->
+<!--            [(ngModel)]="item.value"-->
+<!--            [placeholder]="item.label"-->
+<!--            [required]="item.required"-->
+<!--            [readonly]="item.readonly"-->
+<!--            matInput-->
+<!--            type="text"-->
+<!--          />-->
+<!--        </mat-form-field>-->
+<!--      </div>-->
+<!--      <div-->
+<!--        *ngSwitchCase="localFormDialogModel.number"-->
+<!--        fxFlex="100"-->
+<!--        fxLayout="row"-->
+<!--      >-->
+<!--        <mat-form-field fxFlex="100">-->
+<!--          <input-->
+<!--            [(ngModel)]="item.value"-->
+<!--            [placeholder]="item.label"-->
+<!--            [required]="item.required"-->
+<!--            matInput-->
+<!--            type="number"-->
+<!--          />-->
+<!--        </mat-form-field>-->
+<!--      </div>-->
+<!--      <section *ngSwitchCase="localFormDialogModel.checkBox">-->
+<!--        <mat-checkbox [(ngModel)]="item.value">-->
+<!--          {{ item.label }}-->
+<!--        </mat-checkbox>-->
+<!--      </section>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div-->
+<!--    class="button-container"-->
+<!--    fxLayout="row"-->
+<!--    fxLayoutAlign="center stretch"-->
+<!--    fxLayoutGap="20px"-->
+<!--    mat-dialog-actions-->
+<!--  >-->
+<!--    <button-->
+<!--      [mat-dialog-close]="formDataToMap()"-->
+<!--      color="primary"-->
+<!--      fxFlex="40"-->
+<!--      mat-raised-button-->
+<!--    >-->
+<!--      {{ data.submitBtnText }}-->
+<!--    </button>-->
+<!--    <button-->
+<!--      (click)="return()"-->
+<!--      *ngIf="data.isCancelBtnVisible"-->
+<!--      color="warn"-->
+<!--      fxFlex="40"-->
+<!--      mat-raised-button-->
+<!--    >-->
+<!--      {{ data.cancelBtnText }}-->
+<!--    </button>-->
+<!--  </div>-->
+<!--</div>-->

@@ -1,0 +1,22 @@
+
+<div class="image-box"  (click)="openSnackBar()">
+  <img src="../../../../assets/iot/gateway.png" *ngIf="isActive; else disable" alt="gateway">
+  <ng-template #disable >
+    <img src="../../../../assets/iot/gateway_disable.png" alt="gateway">
+  </ng-template>
+  <ngx-from-to-animation [type]="sensorType" [@fromTo]="animationState"  class="animation"></ngx-from-to-animation>
+
+</div>
+
+
+<ng-template #snackBar>
+  <ngx-menu [menuItems]="snackBarMenuItems"></ngx-menu>
+
+  <span class="title">{{gateway.name}}</span>
+
+    <div class="cell">
+      <label>delay </label>
+      <span >{{gateway.delay}}</span>
+    </div>
+    <div class="close" (click)="closeSnackbar()"> <i class="fa fa-close" aria-hidden="true"></i></div>
+</ng-template>

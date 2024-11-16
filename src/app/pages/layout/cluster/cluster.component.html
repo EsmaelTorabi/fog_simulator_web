@@ -1,0 +1,24 @@
+<div class="cluster">
+  <div class="fognodes-server-container">
+    <div class="fog-nodes-container">
+        <ngx-fog-device   *ngFor="let fogDevice of cluster?.fogDeviceList" [nbTooltip]="fogDevice.name" [cluster]="cluster" [fogDevice]="fogDevice" [id]="fogDevice.name" (delete)="onDeleteDevice(fogDevice.id)" ></ngx-fog-device>
+    </div>
+
+    <div class="server" #server>
+      <ngx-server  *ngIf="cluster.server as server"  [server]="server" id="server" (delete)="onDeleteServer()" ></ngx-server>
+    </div>
+  </div>
+  <div class="broker" #broker>
+    <ngx-broker *ngIf="cluster.broker as broker" [broker]="broker"  [nbTooltip]="broker?.name" [id]="broker?.name" (delete)="onDeleteBroker()" ></ngx-broker>
+  </div>
+</div>
+<div class="gateway" #gateway>
+  <ngx-fog-gateway *ngIf="cluster.gateway as gateWay" [gateway]="gateWay" [nbTooltip]="gateWay?.name" [id]="gateWay?.name" (delete)="onDeleteGateway()" ></ngx-fog-gateway>
+</div>
+
+
+<div class="sensors-container">
+  <ngx-sensor  [id]="sensor.name" [sensor]="sensor"  [nbTooltip]="sensor.name" *ngFor="let sensor of cluster?.sensorList" (delete)="onDeleteSensor(sensor.id)">
+  </ngx-sensor>
+</div>
+

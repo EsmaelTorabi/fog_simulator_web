@@ -1,0 +1,88 @@
+
+.brokers-connector-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 80%;
+  bottom: 573px;
+}
+
+
+.main-container {
+  margin-left: auto;
+  margin-right: auto;
+  height: 600px;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  row-gap: 20px;
+  justify-content: space-between;
+}
+
+.clusters-container {
+  display: flex;
+  justify-content: center;
+  column-gap: 30px;
+}
+
+.delete-button:hover {
+  color: #ecc6c6 !important;
+}
+
+nb-option {
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+}
+
+.top-btns {
+  position: sticky;
+  right: 16px;
+  top: 0;
+  align-self: end;
+  z-index: 100;
+  display: flex;
+  align-items: start;
+  column-gap: 15px;
+}
+
+.bottom-btns {
+  position: fixed;
+  right: 80px;
+  bottom: 16px;
+  display: flex;
+  align-self: end;
+  column-gap: 15px;
+  z-index: 100;
+
+
+  .history-btn {
+    ngx-select {
+      width: 20px;
+    }
+
+    ::ng-deep .mat-select-arrow {
+      color: #ffffff;
+    }
+  }
+}
+
+.history-option ::ng-deep .mat-option-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+#svg {
+  position: absolute;
+  bottom: 192px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+
+#line {
+  stroke-width: 2px;
+  stroke: rgb(0, 0, 0);
+}

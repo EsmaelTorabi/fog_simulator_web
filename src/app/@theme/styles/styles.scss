@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
+
+// themes - our custom or/and out of the box themes
+@import 'themes';
+
+// framework component themes (styles tied to theme variables)
+@import '@nebular/theme/styles/globals';
+@import '@nebular/auth/styles/globals';
+
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/grid';
+
+// loading progress bar theme
+@import './pace.theme';
+
+@import './layout';
+@import './overrides';
+
+// install the framework and custom global styles
+@include nb-install() {
+
+  // framework global styles
+  @include nb-theme-global();
+  @include nb-auth-global();
+
+  @include ngx-layout();
+  // loading progress bar
+  @include ngx-pace-theme();
+
+  @include nb-overrides();
+};
+@font-face {
+  font-family: 'IRANSansWebBlack';
+  font-style: normal;
+  font-weight: 900;
+  src: url('../../../assets/iot/fonts/iransans/IRANSansWeb_Black.ttf') ;
+}
+
+@font-face {
+  font-family: 'IRANSansWebBold';
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'IRANSansWebMedium';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../../../assets/iot/fonts/iransans/IRANSansWeb_Medium.ttf') ;
+}
+
+@font-face {
+  font-family: 'IRANSansWebLight';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../../../assets/iot/fonts/iransans/IRANSansWeb_Light.ttf');
+}
+
+@font-face {
+  font-family: 'IRANSansWeb';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../../../assets/iot/fonts/iransans/IRANSansWeb.ttf') ;
+}
+
+
+.image-box{
+  width: 36px;
+  height: 36px;
+  z-index: 1;
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: inherit;
+  }
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.cursor-default{
+  cursor: default;
+}
+.snackbar{
+  background-color: #ffffff !important;
+  color: #312f2f !important;
+  display: flex !important;
+  row-gap: 20px;
+  flex-direction: column;
+  justify-content: center;
+  overflow: auto;
+  position: relative !important;
+  min-width: 50vw !important;
+
+}
+label{
+  color: #312f2f !important;
+}
+.cell span:first-child:after{
+  content: ':';
+}
+.cell span:last-child{
+  color: #3366ff !important;
+}
+.title{
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  align-self: center;
+  color: #28326e;  }
+.close{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #e05e5e;
+  cursor: pointer;
+  &:hover{
+    color: #912e2e;
+  }
+}
+.row{
+  display: flex;
+  align-items: flex-start;
+  column-gap: 20px;
+  max-height: 40px;
+  &>label{
+    width: 55px;
+    word-break: break-word;
+  }
+  .list{
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: flex-start;
+    border: 1px solid #312f2f;
+    min-width: 20px;
+    min-height: 18px;
+    .cell{
+      padding-right: 5px;
+      padding-left: 5px;
+      &:not(:last-child){
+        border-right: 1px solid #312f2f;
+      }
+    }
+  }
+}
+
+.columns{
+  display: flex;
+  align-items: flex-start;
+  column-gap: 20px;
+  border-radius: 15px;
+  overflow: auto;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  row-gap: 20px;
+  max-height: 300px;
+  padding: 3px;
+  .cell{
+    display: flex;
+    column-gap: 8px;
+    align-items: center;
+  }
+}
+ngx-from-to-animation {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+
+  img{
+    object-fit: contain!important;
+  }
+}
+
+.form-inline{
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
+.form-buttons{
+  display: flex;
+  column-gap: 16px;
+
+}
+*{
+  ::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: 8px;
+    background: #e2e2f6;
+
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: #595757;
+
+  }
+
+}

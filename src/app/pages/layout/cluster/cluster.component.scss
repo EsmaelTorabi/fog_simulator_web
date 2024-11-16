@@ -1,0 +1,106 @@
+
+:host{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 50px;
+  position: relative;
+}
+
+.cluster{
+  border: 5px dashed #3366ff;
+  border-radius: 4px;
+  padding: 20px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  .broker{
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    bottom: 40px;
+    background-color: inherit;
+    z-index: 1;
+  }
+  .fog-nodes-container{
+    display: flex;
+    column-gap: 10px;
+    justify-content: center;
+    align-items: flex-start;
+
+    &:hover {
+      app-fog-device{
+        opacity: 0.5;
+        &:hover{
+          opacity: 1;
+        }
+      }
+
+    }
+  }
+
+  .fognodes-server-container{
+    display: flex;
+    height: 150px;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px 20px 10px;
+    //background-color: #dbe3fb;
+    border: 2px dashed #3366ff;
+    position: relative;
+    min-width: 104px;
+    .server{
+      width: 116px;
+      height: 44px;
+    }
+  }
+}
+.gateway{
+  width: 36px;
+  height: 36px;
+}
+
+.sensors-container{
+  display: flex;
+  column-gap: 5px;
+}
+
+.svg{
+  position: absolute;
+  left: 0;
+  width: 100%;
+
+}
+.gateway-broker-svg{
+  height: 200px;
+  bottom: -56px;
+  position: absolute;
+
+}
+.broker-server-svg{
+  height: 120px;
+  bottom: 127px;
+  position: absolute;
+}
+
+.device-server-svg{
+  top: 50px;
+  height: 30px;
+}
+.gateway-sensor-svg{
+  height: 50px;
+  bottom: 37px;
+}
+
+#line{
+  stroke-width:2px;
+  stroke:rgb(0,0,0);
+}
+
+
+
+

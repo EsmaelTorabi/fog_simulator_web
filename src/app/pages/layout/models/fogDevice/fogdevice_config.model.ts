@@ -1,0 +1,30 @@
+export class FogDeviceConfig {
+  db1 = 0.1;
+  db2 = 0.1;
+  db3 = 0.1;
+  db4 = 0.1;
+  db5 = 0.1;
+  currentAttendanceTime = 0.0;
+  devicePresenceMiddle = 0.0;
+  devicesPresenceVariance = 0.0;
+  totalMips = 0.0;
+  uploadBW = 100.0;
+  downloadBW = 100.0;
+  costPerBusyTime = 100.0;
+  costPerIdleTime = 20.0;
+  RPI = 2;
+  flu: number;
+  tb1: number = 0.1;
+  tb2: number = 0.2;
+  tb3: number = 0.3;
+  minDataSize = 200;
+  minStoragePercent = 0.6;
+  minFlue = 0.5;
+  minQueue = 2;
+  minExpireTime = 1;
+  aEpsilon = 0.4;
+  bEpsilon = 0.4;
+  tEpsilon = 0.4;
+  costPerMips = 10.0;
+  costPerMem = 1000.0;
+}

@@ -1,0 +1,5 @@
+<!--<button mat-icon-button color="primary" ="menu"><i class="fa fa-ellipsis-v"></i></button>-->
+
+<nb-menu >
+  <button nbMenuItem *ngFor="let item of menuItems" [disabled]="!isButtonsVisible" (click)="doAction(item.action)">{{item.text}}</button>
+</nb-menu>

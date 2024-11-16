@@ -1,0 +1,19 @@
+@import '../../../@theme/styles/themes';
+
+.buttons-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  row-gap: 15px;
+  column-gap: 10px;
+  justify-content: flex-start;
+  align-items: end;
+  margin-bottom: 20px;
+  .log-btn{
+    margin-left: auto;
+  }
+  button{
+    width: 150px
+  }
+}

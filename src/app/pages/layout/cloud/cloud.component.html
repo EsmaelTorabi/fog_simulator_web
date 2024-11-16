@@ -1,0 +1,7 @@
+
+<div class="cloud image-box" >
+  <img src="../../../../assets/iot/cloud.png" *ngIf="isActive; else disable" alt="cloud">
+  <ng-template #disable >
+    <img src="../../../../assets/iot/cloud_disable.png" alt="cloud">
+  </ng-template>
+</div>

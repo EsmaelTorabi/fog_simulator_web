@@ -1,0 +1,120 @@
+
+[
+    {
+      "name": "default",
+       "cluster": {
+        "fogDevicesCount": 5,
+        "laptopCount": 3,
+        "mobileCount": 2,
+        "sensorsCount": 3
+      }
+    },
+    {
+      "name": "scenario1",
+      "cluster": {
+        "fogDevicesCount": 5,
+        "laptopCount": 3,
+        "mobileCount": 2,
+        "sensorsCount": 13
+      }
+    },
+    {
+      "name": "scenario2",
+      "cluster": {
+        "fogDevicesCount": 20,
+        "laptopCount": 10,
+        "mobileCount": 10,
+        "sensorsCount": 13
+      }
+    },
+    {
+      "name": "Scenario3",
+      "cluster": {
+        "fogDevicesCount": 50,
+        "laptopCount": 30,
+        "mobileCount": 20,
+        "sensorsCount": 13
+      }
+    },
+    {
+      "name": "Scenario4",
+      "cluster": {
+        "fogDevicesCount": 100,
+        "laptopCount": 70,
+        "mobileCount": 30,
+        "sensorsCount": 13
+      }
+    },
+  {
+    "name": "Scenario5",
+    "cluster": {
+      "fogDevicesCount": 5,
+      "laptopCount": 1,
+      "mobileCount": 4,
+      "sensorsCount": 4
+    }
+  },
+  {
+    "name": "Scenario6",
+    "cluster": {
+      "fogDevicesCount": 20,
+      "laptopCount": 17,
+      "mobileCount": 3,
+      "sensorsCount": 4
+    }
+  },
+  {
+    "name": "Scenario7",
+    "cluster": {
+      "fogDevicesCount": 50,
+      "laptopCount": 10,
+      "mobileCount": 40,
+      "sensorsCount": 4
+    }
+  },
+  {
+    "name": "Scenario8",
+    "cluster": {
+      "fogDevicesCount": 100,
+      "laptopCount": 70,
+      "mobileCount": 30,
+      "sensorsCount": 4
+    }
+  },
+  {
+    "name": "Scenario9",
+    "cluster": {
+      "fogDevicesCount": 5,
+      "laptopCount": 3,
+      "mobileCount": 2,
+      "sensorsCount": 30
+    }
+  },
+  {
+    "name": "Scenario10",
+    "cluster": {
+      "fogDevicesCount": 20,
+      "laptopCount": 11,
+      "mobileCount": 9,
+      "sensorsCount": 30
+    }
+  },
+  {
+    "name": "Scenario11",
+    "cluster": {
+      "fogDevicesCount": 50,
+      "laptopCount": 25,
+      "mobileCount": 25,
+      "sensorsCount": 30
+    }
+  },
+  {
+    "name": "Scenario12",
+    "cluster": {
+      "fogDevicesCount": 100,
+      "laptopCount": 20,
+      "mobileCount": 80,
+      "sensorsCount": 30
+    }
+  }
+  ]

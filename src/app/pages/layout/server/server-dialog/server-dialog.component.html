@@ -1,0 +1,70 @@
+<nb-card>
+  <nb-card-header>
+    <div class="flex-row align-items-center justify-content-between" style="display: flex">
+      <span>{{dialogMode === 'view' ? server?.name : (dialogMode === 'edit' ? 'Edit ' + server?.name : 'New Server')}}</span>
+      <nb-icon  [icon]="'close-round'" pack="ion" (click)="cancel()"  status="primary" class="cursor-pointer"></nb-icon>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <form  [formGroup]="form" *ngIf="dialogMode!=='view'; else view">
+      <div class="form-group">
+        <label for="name" class="label">Name</label>
+        <input type="text" nbInput fullWidth formControlName="name" id="name" placeholder="Name">
+      </div>
+
+      <div class="form-group">
+        <label for="clusterName" class="label">Cluster Name</label>
+        <nb-select fullWidth formControlName="clusterName" placeholder="Cluster Name" id="clusterName">
+          <nb-option *ngFor="let cluster of clusterList" [value]="cluster.name" >{{cluster.name}}</nb-option>
+        </nb-select>
+      </div>
+
+      <div class="form-group">
+        <label for="delay" class="label">Delay</label>
+        <input type="text" nbInput fullWidth formControlName="delay" id="delay" placeholder="Delay">
+      </div>
+    </form>
+    <ng-template #view>
+      <div class="columns">
+        <div class="column">
+          <div class="cell">
+            <span>Id</span>
+            <span>{{server?.id}}</span>
+          </div>
+          <div class="cell">
+            <span>Name</span>
+            <span>{{server?.name}}</span>
+          </div>
+          <div class="cell">
+            <span>Delay</span>
+            <span>{{server?.delay}}</span>
+          </div>
+
+        </div>
+        <div class="column">
+          <div class="cell">
+            <span>Location</span>
+            <span >{{ server?.location ? server?.location[0] +',' +server?.location[1] : ''}}</span>
+          </div>
+          <div class="cell">
+            <span>deviceList</span>
+            <span><ng-container  *ngFor="let item of server?.deviceList">{{ item.id + ','}}</ng-container></span>
+          </div>
+        </div>
+
+      </div>
+    </ng-template>
+
+  </nb-card-body>
+  <nb-card-footer>
+    <div class="form-buttons">
+      <button class="cancel" nbButton status="basic" (click)="cancel()">Cancel</button>
+      <ng-container *ngIf="dialogMode==='view'">
+        <button class="cancel" nbButton status="danger" (click)="delete()">Delete</button>
+        <button nbButton status="primary" (click)="edit()">Edit</button>
+      </ng-container>
+      <button nbButton status="success" (click)="submit()" *ngIf="dialogMode!=='view'">Submit</button>
+
+    </div>
+  </nb-card-footer>
+</nb-card>

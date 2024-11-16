@@ -1,0 +1,15 @@
+export enum EventType {
+  ALL = 'ALL',
+  APPLICATION = 'APPLICATION',
+  CLUSTER = 'CLUSTER',
+  SENSOR = 'SENSOR',
+  FOG_DEVICE = 'FOG_DEVICE',
+  SERVER = 'SERVER',
+  BROKER = 'SERVER',
+  GATEWAY = 'GATEWAY',
+  NONE = 'NONE',
+  CUSTOM = 'CUSTOM',
+  RuntimeAdaption = 'RuntimeAdaption',
+  INITIALIZE_APP ='INITIALIZE_APP',
+  RESULT = 'RESULT'
+}

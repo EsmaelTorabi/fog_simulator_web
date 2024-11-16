@@ -1,0 +1,197 @@
+<nb-card>
+  <nb-card-header>
+    <div class="flex-row align-items-center justify-content-between" style="display: flex">
+      <span>{{dialogMode === 'view' ? fogDevice?.name : (dialogMode === 'edit' ? 'Edit ' + fogDevice?.name : 'New Fog Device')}}</span>
+      <nb-icon  [icon]="'close-round'" pack="ion" (click)="cancel()"  status="primary" class="cursor-pointer"></nb-icon>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div  style="display: flex;column-gap: 10px"  *ngIf="dialogMode!=='view'; else view"
+    >
+      <form class="form-inline" [formGroup]="form">
+        <input type="text" nbInput fullWidth formControlName="name" placeholder="name">
+        <nb-select fullWidth formControlName="clusterName" placeholder="cluster name">
+          <nb-option *ngFor="let cluster of clusterList" [value]="cluster.name">{{cluster.name}}</nb-option>
+        </nb-select>
+        <input type="number" nbInput fullWidth formControlName="storage" placeholder="Storage">
+        <input type="text" nbInput fullWidth formControlName="serverId" placeholder="Server Id">
+        <nb-select fullWidth formControlName="type" placeholder="type">
+          <nb-option [value]="fogDeviceTypes.Warner">{{fogDeviceTypes.Warner}}</nb-option>
+          <nb-option [value]="fogDeviceTypes.Storage">{{fogDeviceTypes.Storage}}</nb-option>
+          <nb-option [value]="fogDeviceTypes.Analyzer">{{fogDeviceTypes.Analyzer}}</nb-option>
+          <nb-option [value]="fogDeviceTypes.All">{{fogDeviceTypes.All}}</nb-option>
+        </nb-select>
+        <nb-select fullWidth formControlName="deviceType" placeholder="Device Type">
+          <nb-option [value]="deviceTypes.laptop">{{deviceTypes.laptop}}</nb-option>
+          <nb-option [value]="deviceTypes.mobile">{{deviceTypes.mobile}}</nb-option>
+        </nb-select>
+        <input type="number" nbInput fullWidth formControlName="createdAt" placeholder="Created At">
+      </form>
+      <form  class="form-inline"  [formGroup]="configForm" >
+        <input type="number" nbInput fullWidth formControlName="aEpsilon" placeholder="aEpsilon">
+        <input type="number" nbInput fullWidth formControlName="bEpsilon" placeholder="bEpsilon">
+        <input type="number" nbInput fullWidth formControlName="tEpsilon" placeholder="tEpsilon">
+        <input type="number" nbInput fullWidth formControlName="db1" placeholder="db1">
+        <input type="number" nbInput fullWidth formControlName="db2" placeholder="db2">
+        <input type="number" nbInput fullWidth formControlName="db3" placeholder="db3">
+        <input type="number" nbInput fullWidth formControlName="db4" placeholder="db4">
+        <input type="number" nbInput fullWidth formControlName="db5" placeholder="db5">
+      </form>
+      <form class="form-inline" [formGroup]="configForm">
+
+        <input type="number" nbInput fullWidth formControlName="costPerBusyTime" placeholder="costPerBusyTime">
+        <input type="number" nbInput fullWidth formControlName="costPerIdleTime" placeholder="costPerIdleTime">
+        <input type="number" nbInput fullWidth formControlName="currentAttendanceTime" placeholder="currentAttendanceTime">
+        <input type="number" nbInput fullWidth formControlName="devicePresenceMiddle" placeholder="devicePresenceMiddle">
+        <input type="number" nbInput fullWidth formControlName="downloadBW" placeholder="downloadBW">
+        <input type="number" nbInput fullWidth formControlName="devicesPresenceVariance" placeholder="devicesPresenceVariance">
+        <input type="number" nbInput fullWidth formControlName="flu" placeholder="flu">
+        <input type="number" nbInput fullWidth formControlName="minDataSize" placeholder="minDataSize">
+
+      </form>
+      <form class="form-inline" [formGroup]="configForm">
+        <input type="number" nbInput fullWidth formControlName="minExpireTime" placeholder="minExpireTime">
+        <input type="number" nbInput fullWidth formControlName="uploadBW" placeholder="uploadBW">
+        <input type="number" nbInput fullWidth formControlName="minStoragePercent" placeholder="minStoragePercent">
+      </form>
+    </div>
+    <ng-template #view>
+      <div class="columns">
+        <div class="column">
+          <div class="cell">
+            <span>Id</span>
+            <span>{{fogDevice?.id}}</span>
+          </div>
+          <div class="cell">
+            <span>Name</span>
+            <span>{{fogDevice?.name}}</span>
+          </div>
+          <div class="cell">
+            <span>Server Id</span>
+            <span>{{fogDevice?.serverId}}</span>
+          </div>
+          <div class="cell">
+            <span>Type</span>
+            <span>{{fogDevice?.type}}</span>
+          </div>
+          <div class="cell">
+            <span>deviceType</span>
+            <span>{{fogDevice?.deviceType}}</span>
+          </div>
+          <div class="cell">
+            <span>createdAt</span>
+            <span>{{fogDevice?.createdAt}}</span>
+          </div>
+
+          <div class="cell">
+            <span>Location</span>
+            <span >{{ fogDevice?.location ? fogDevice?.location[0] +',' +fogDevice?.location[1] : ''}}</span>
+          </div>
+
+        </div>
+        <div class="column">
+          <div class="cell">
+            <span>aEpsilon</span>
+            <span>{{fogDevice?.config?.aEpsilon}}</span>
+          </div>
+          <div class="cell">
+            <span>bEpsilon</span>
+            <span>{{fogDevice?.config?.bEpsilon}}</span>
+          </div>
+          <div class="cell">
+            <span>tEpsilon</span>
+            <span>{{fogDevice?.config?.tEpsilon}}</span>
+          </div>
+          <div class="cell">
+            <span>db1</span>
+            <span>{{fogDevice?.config?.db1}}</span>
+          </div>
+          <div class="cell">
+            <span>db2</span>
+            <span>{{fogDevice?.config?.db2}}</span>
+          </div>
+          <div class="cell">
+            <span>db3</span>
+            <span>{{fogDevice?.config?.db3}}</span>
+          </div>
+          <div class="cell">
+            <span>db4</span>
+            <span>{{fogDevice?.config?.db4}}</span>
+          </div>
+
+        </div>
+        <div class="column">
+          <div class="cell">
+            <span>db5</span>
+            <span>{{fogDevice?.config?.db5}}</span>
+          </div>
+          <div class="cell">
+            <span>costPerBusyTime</span>
+            <span>{{fogDevice?.config?.costPerBusyTime}}</span>
+          </div>
+          <div class="cell">
+            <span>costPerIdleTime</span>
+            <span>{{fogDevice?.config?.costPerIdleTime}}</span>
+          </div>
+          <div class="cell">
+            <span>currentAttendanceTime</span>
+            <span>{{fogDevice?.config?.currentAttendanceTime}}</span>
+          </div>
+
+          <div class="cell">
+            <span>devicePresenceMiddle</span>
+            <span>{{fogDevice?.config?.devicePresenceMiddle}}</span>
+          </div>
+          <div class="cell">
+            <span>downloadBW</span>
+            <span>{{fogDevice?.config?.downloadBW}}</span>
+          </div>
+          <div class="cell">
+            <span>devicesPresenceVariance</span>
+            <span>{{fogDevice?.config?.devicesPresenceVariance}}</span>
+          </div>
+        </div>
+        <div class="column">
+
+          <div class="cell">
+            <span>flu</span>
+            <span>{{fogDevice?.config?.flu}}</span>
+          </div>
+          <div class="cell">
+            <span>minDataSize</span>
+            <span>{{fogDevice?.config?.minDataSize}}</span>
+          </div>
+          <div class="cell">
+            <span>minExpireTime</span>
+            <span>{{fogDevice?.config?.minExpireTime}}</span>
+          </div>
+
+          <div class="cell">
+            <span>uploadBW</span>
+            <span>{{fogDevice?.config?.uploadBW}}</span>
+          </div>
+          <div class="cell">
+            <span>minStoragePercent</span>
+            <span>{{fogDevice?.config?.minStoragePercent}}</span>
+          </div>
+          <div class="cell">
+            <span>devicesPresenceVariance</span>
+            <span>{{fogDevice?.config?.devicesPresenceVariance}}</span>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+  </nb-card-body>
+  <nb-card-footer>
+    <div class="form-buttons">
+      <button class="cancel" nbButton status="basic" (click)="cancel()">Cancel</button>
+      <ng-container *ngIf="dialogMode==='view'">
+        <button class="cancel" nbButton status="danger" (click)="delete()">Delete</button>
+        <button nbButton status="primary" (click)="edit()">Edit</button>
+      </ng-container>
+      <button nbButton status="success" (click)="submit()" *ngIf="dialogMode!=='view'">Submit</button>
+
+    </div>
+  </nb-card-footer>
+</nb-card>

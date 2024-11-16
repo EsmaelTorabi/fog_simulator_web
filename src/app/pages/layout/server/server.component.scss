@@ -1,0 +1,17 @@
+.main-container{
+  display: flex;
+  background-color: inherit;
+  padding: 4px;
+  border-radius: 7px;
+}
+.map{
+
+  max-height: 100px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  .row{
+    max-height: unset !important;
+  }
+}

@@ -1,0 +1,44 @@
+<nb-card>
+  <nb-card-header>
+
+  </nb-card-header>
+  <nb-card-body>
+    <form  [formGroup]="form" >
+
+      <div class="form-group">
+        <label for="dataPlacementType" class="label">Data Placement Type</label>
+        <nb-select fullWidth formControlName="dataPlacementType" placeholder="Data Placement Type" id="dataPlacementType" (selectedChange)="change()">
+          <nb-option  [value]="dataPlacementType.CA_REPLICA" >{{dataPlacementType.CA_REPLICA}}</nb-option>
+          <nb-option  [value]="dataPlacementType.CUSTOM_CA_REPLICA" >{{dataPlacementType.CUSTOM_CA_REPLICA}}</nb-option>
+          <nb-option  [value]="dataPlacementType.FULL_REPLICA" >{{dataPlacementType.FULL_REPLICA}}</nb-option>
+          <nb-option  [value]="dataPlacementType.NO_REPLICA" >{{dataPlacementType.NO_REPLICA}}</nb-option>
+          <nb-option  [value]="dataPlacementType.ONE_REPLICA" >{{dataPlacementType.ONE_REPLICA}}</nb-option>
+
+        </nb-select>
+      </div>
+      <div class="form-group">
+        <label for="taskPlacementType" class="label">Task Placement Type</label>
+        <nb-select fullWidth formControlName="taskPlacementType" placeholder="Task Placement Type" id="taskPlacementType" >
+          <nb-option *ngIf="form?.value?.dataPlacementType===dataPlacementType.NO_REPLICA"  [value]="null" ></nb-option>
+          <nb-option *ngIf="form?.value?.dataPlacementType===dataPlacementType.CUSTOM_CA_REPLICA"  [value]="taskPlacementType.CUSTOM_PERFORMANCE_AWARE" >{{taskPlacementType.CUSTOM_PERFORMANCE_AWARE}}</nb-option>
+          <nb-option  *ngIf="form?.value?.dataPlacementType===dataPlacementType.ONE_REPLICA"  [value]="taskPlacementType.DATA_AWARE" >{{taskPlacementType.DATA_AWARE}}</nb-option>
+          <nb-option  *ngIf="form?.value?.dataPlacementType===dataPlacementType.CA_REPLICA"  [value]="taskPlacementType.PERFORMANCE_AWARE" >{{taskPlacementType.PERFORMANCE_AWARE}}</nb-option>
+          <nb-option  *ngIf="form?.value?.dataPlacementType===dataPlacementType.FULL_REPLICA"  [value]="taskPlacementType.RANDOM" >{{taskPlacementType.RANDOM}}</nb-option>
+        </nb-select>
+      </div>
+      <div class="form-group">
+        <label for="maxSimulationTime" class="label">Max Simulation Time</label>
+        <input type="number" nbInput fullWidth formControlName="maxSimulationTime" id="MaxSimulationTime" placeholder="Max Simulation Time">
+      </div>
+
+    </form>
+
+  </nb-card-body>
+  <nb-card-footer>
+    <div class="form-buttons">
+      <button class="cancel" nbButton status="basic" (click)="cancel()">Cancel</button>
+      <button nbButton status="success" (click)="submit()" >Submit</button>
+
+    </div>
+  </nb-card-footer>
+</nb-card>

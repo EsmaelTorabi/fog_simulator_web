@@ -1,0 +1,137 @@
+
+<div class="image-box cursor-pointer"  (click)="openSnackBar()">
+  <ng-container *ngIf="isActive; else disable" [ngSwitch]="fogDevice.deviceType">
+    <img src="../../../../assets/iot/device1.png" *ngSwitchCase="deviceType.mobile" [alt]="deviceType.mobile">
+    <img src="../../../../assets/iot/device2.png" *ngSwitchCase="deviceType.laptop" [alt]="deviceType.laptop">
+
+  </ng-container>
+  <ng-template #disable [ngSwitch]="fogDevice.deviceType">
+    <img src="../../../../assets/iot/device1_disable.png" *ngSwitchCase="deviceType.mobile" [alt]="deviceType.mobile">
+    <img src="../../../../assets/iot/device2_disable.png" *ngSwitchCase="deviceType.laptop" [alt]="deviceType.laptop">
+
+  </ng-template>
+  <ngx-from-to-animation [type]="sensorType" [@serverToDevice]="{value: serverToDeviceAnimationState, params: { left: fogDevice.animLeft,top:fogDevice.animTop }}"
+       class="animation"></ngx-from-to-animation>
+  <ngx-from-to-animation [type]="sensorType" [@deviceToServer]="{value: animateToServerState, params: { left: fogDevice.animLeft,top:fogDevice. animTop }}"
+                         class="animation"></ngx-from-to-animation>
+</div>
+
+
+<ng-template #snackBar>
+  <ngx-menu [menuItems]="snackBarMenuItems"></ngx-menu>
+    <span class="title">{{fogDevice.name}}</span>
+    <div class="close" (click)="closeSnackbar()"> <i class="fa fa-close" aria-hidden="true"></i></div>
+  <div class="row">
+    <span >Tuples: </span>
+    <div class="list">
+<!--      <span class="cell" *ngFor="let tuple of fogDevice.tupleList">{{tuple.id}}</span>-->
+    </div>
+  </div>
+
+  <div class="row">
+    <span >Queue:</span>
+    <div class="list">
+<!--      <span class="cell" *ngFor="let item of fogDevice.queue">{{item.id}}</span>-->
+    </div>
+  </div>
+    <div class="columns">
+      <div class="column">
+
+        <div class="cell">
+          <label>totalSpace </label>
+<!--          <span>{{fogDevice.totalSpace}}</span>-->
+        </div>
+        <div class="cell">
+          <label>emptySpace </label>
+<!--          <span>{{fogDevice.emptySpace}}</span>-->
+        </div>
+
+        <div class="cell">
+          <label> currentAttendanceTime </label>
+<!--          <span>{{fogDevice.currentAttendanceTime}}</span>-->
+        </div>
+
+        <div class="cell">
+          <label>devicePresenceMiddle </label>
+<!--          <span>{{fogDevice.devicePresenceMiddle}}</span>-->
+        </div>
+
+        <div class="cell">
+          <label>devicesPresenceiance </label>
+<!--          <span>{{fogDevice.devicesPresenceiance}}</span>-->
+        </div>
+
+      </div>
+
+      <div class="column bList">
+
+        <div class="cell">
+          <label>b1 </label>
+          <span>{{fogDevice.b1}}</span>
+        </div>
+
+        <div class="cell">
+          <label>b2 </label>
+          <span>{{fogDevice.b2}}</span>
+        </div>
+
+        <div class="cell">
+          <label>b3 </label>
+          <span>{{fogDevice.b3}}</span>
+        </div>
+
+        <div class="cell">
+          <label>b4 </label>
+          <span>{{fogDevice.b4}}</span>
+        </div>
+        <div class="cell">
+          <label>b5 </label>
+          <span>{{fogDevice.b5}}</span>
+        </div>
+      </div>
+
+      <div class="column">
+
+        <div class="cell">
+          <label>taskB1 </label>
+          <span>{{fogDevice.taskB1}}</span>
+        </div>
+        <div class="cell">
+          <label>taskB2 </label>
+          <span>{{fogDevice.taskB2}}</span>
+        </div>
+        <div class="cell">
+          <label>taskB3 </label>
+          <span>{{fogDevice.taskB3}}</span>
+        </div>
+        <div class="cell">
+          <label>ratePerMips </label>
+          <span>{{fogDevice.ratePerMips}}</span>
+        </div>
+        <div class="cell">
+          <label>totalCpuTime </label>
+          <span>{{fogDevice.totalCpuTime}}</span>
+        </div>
+      </div>
+
+      <div class="column">
+
+        <div class="cell">
+          <label>aEpsilon </label>
+<!--          <span>{{fogDevice.aEpsilon}}</span>-->
+        </div>
+        <div class="cell">
+          <label>bEpsilon </label>
+<!--          <span>{{fogDevice.bEpsilon}}</span>-->
+        </div>
+        <div class="cell">
+          <label>tEpsilon </label>
+<!--          <span>{{fogDevice.tEpsilon}}</span>-->
+        </div>
+        <div class="cell">
+          <label>delay </label>
+<!--          <span>{{fogDevice.delay}}</span>-->
+        </div>
+      </div>
+    </div>
+</ng-template>
